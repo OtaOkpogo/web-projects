@@ -143,7 +143,7 @@ restartButton.onclick = () => {
 };
 
 function showResult() {
-  questionText.textContent = `í¾‰ Quiz Complete! Score: ${score}/${questions.length}`;
+  questionText.textContent = `ï¿½ Quiz Complete! Score: ${score}/${questions.length}`;
   feedback.textContent = "";
   optionsDiv.innerHTML = "";
   progress.textContent = "";
