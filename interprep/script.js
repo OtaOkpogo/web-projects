@@ -1,3 +1,7 @@
+let timer;
+let timeLeft = 20;
+const timerDisplay = document.getElementById("timer");
+
 const questions = [
   {
     question: "Which of the following is not a principle of OOP?",
@@ -159,4 +163,16 @@ function showResult() {
 }
 
 showQuestion();
+clearInterval(timer);
+timeLeft = 20;
+updateTimer();
+timer = setInterval(() => {
+  timeLeft--;
+  updateTimer();
+  if (timeLeft <= 0) {
+    clearInterval(timer);
+    autoFailQuestion();
+  }
+}, 1000);
+
 
