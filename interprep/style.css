@@ -1,53 +1,151 @@
+/* Reset and Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 body {
-  background-color: #000;
-  color: #FFA500;
-  font-family: Arial, sans-serif;
-  text-align: center;
+  background: url('assets/java-bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: brightness(0.5);
 }
 
 .container {
-  max-width: 600px;
-  margin: auto;
-  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 40px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
 }
 
-input, select, button {
+h1, h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form, main {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
   display: block;
-  width: 90%;
-  margin: 10px auto;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+input, select {
+  width: 100%;
   padding: 10px;
-  border-radius: 5px;
   border: none;
+  border-radius: 8px;
   font-size: 1rem;
 }
 
 button {
-  background-color: #FFA500;
-  color: black;
+  padding: 12px;
+  background-color: #f57c00;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
 }
 
 button:hover {
-  background-color: #ffbb33;
+  background-color: #e65100;
 }
 
-#timer {
-  text-align: right;
+#quiz-container header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#question {
   font-size: 1.2rem;
+  margin-bottom: 15px;
+  font-weight: bold;
 }
 
-.correct {
-  background-color: green;
-  color: white;
+#options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.wrong {
-  background-color: red;
-  color: white;
+#options button {
+  background-color: #212121;
+  border: 1px solid #444;
+  font-weight: normal;
+}
+
+#options button:hover {
+  background-color: #333;
+}
+
+#feedback {
+  margin-top: 10px;
+  font-style: italic;
 }
 
 #result {
-  font-size: 1.3rem;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 20px;
   margin-top: 20px;
+  border-top: 1px solid #777;
+}
+
+#timer {
+  font-size: 1.1rem;
+  background-color: #263238;
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+
+#logoutBtn {
+  background-color: #d32f2f;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+}
+
+#logoutBtn:hover {
+  background-color: #b71c1c;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* Java Logo (optional) */
+.logo {
+  display: block;
+  margin: 0 auto 20px;
+  width: 80px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .container {
+    padding: 20px;
+  }
 }
 
