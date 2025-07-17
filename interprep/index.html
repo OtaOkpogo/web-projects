@@ -1,27 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>InterPrep App</title>
+  <meta charset="UTF-8">
+  <title>Java Quiz App</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h2 id="highScore">High Score: 0</h2>
-    <p id="progress">Question x of y</p>
-    <h3 id="questionText">Loading...</h3>
+    <div id="login-container">
+      <h1>Login to InterPrep</h1>
+      <input type="email" id="emailInput" placeholder="Email">
+      <input type="password" id="passwordInput" placeholder="Password">
+      <select id="categorySelect">
+        <option value="java">Java</option>
+        <option value="spring">Spring Boot</option>
+        <option value="oop">OOP</option>
+      </select>
+      <button id="loginBtn">Login</button>
+      <button id="registerBtn">Register</button>
+    </div>
 
-    <div id="options"></div>
-    <div id="timer">⏳ 20s</div>
-
-    <p id="feedback"></p>
-
-    <button id="nextButton" style="display:none;">Next</button>
-    <button id="restartButton" style="display:none;">Restart Quiz</button>
+    <div id="quiz-container" style="display:none;">
+      <header>
+        <h2>Welcome, <span id="username-display"></span></h2>
+        <div id="timer">⏳ 20s</div>
+      </header>
+      <div id="question"></div>
+      <div id="options"></div>
+      <div id="feedback"></div>
+      <button id="next">Next</button>
+      <div id="result" style="display:none;"></div>
+    </div>
   </div>
 
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
 </body>
 </html>
 
