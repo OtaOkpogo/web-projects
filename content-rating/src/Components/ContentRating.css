@@ -35,10 +35,11 @@
   
   .like-button:hover,
   .dislike-button:hover {
-    background-color: #2980b9;
+    background-color: 
   }
   
   #reactInfo{
     max-width: 400px;
     text-align: justify;
   }
+
