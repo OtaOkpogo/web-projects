@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import './FeedbackForm.css';
+import './FeedbackForm.css'; // Import CSS for styling
 
 const FeedbackForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     feedback: '',
-    rating: '' // ✅ added rating
+    rating: '' // New state for rating
   });
 
   const handleChange = (event) => {
@@ -20,18 +20,18 @@ const FeedbackForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // ✅ store rating in a variable as hinted
+    // ✅ Store rating in a variable (as required by hint)
     const userRating = formData.rating;
 
     const confirmationMessage = `
 Name: ${formData.name}
 Email: ${formData.email}
-Rating: ${userRating}
 Feedback: ${formData.feedback}
+Rating: ${userRating}
     `;
 
     const isConfirmed = window.confirm(
-      `Please confirm your details:\n${confirmationMessage}`
+      `Please confirm your details:\n\n${confirmationMessage}`
     );
 
     if (isConfirmed) {
@@ -41,7 +41,7 @@ Feedback: ${formData.feedback}
         name: '',
         email: '',
         feedback: '',
-        rating: '' // reset rating
+        rating: '' // Reset rating after submission
       });
 
       alert('Thank you for your valuable feedback!');
@@ -72,55 +72,6 @@ Feedback: ${formData.feedback}
           onChange={handleChange}
         />
 
-        {/* ✅ Rating radio buttons */}
-        <div className="rating-section">
-          <p>Rate your experience:</p>
-
-          <label>
-            <input
-              type="radio"
-              name="rating"
-              value="Excellent"
-              checked={formData.rating === 'Excellent'}
-              onChange={handleChange}
-            />
-            Excellent
-          </label>
-
-          <label>
-            <input
-              type="radio"
-              name="rating"
-              value="Good"
-              checked={formData.rating === 'Good'}
-              onChange={handleChange}
-            />
-            Good
-          </label>
-
-          <label>
-            <input
-              type="radio"
-              name="rating"
-              value="Average"
-              checked={formData.rating === 'Average'}
-              onChange={handleChange}
-            />
-            Average
-          </label>
-
-          <label>
-            <input
-              type="radio"
-              name="rating"
-              value="Poor"
-              checked={formData.rating === 'Poor'}
-              onChange={handleChange}
-            />
-            Poor
-          </label>
-        </div>
-
         <textarea
           name="feedback"
           placeholder="Your Feedback"
@@ -128,10 +79,28 @@ Feedback: ${formData.feedback}
           onChange={handleChange}
         ></textarea>
 
+        {/* ✅ Vertical Rating Section */}
+        <div style={{ display: 'flex', gap: '10px', flexDirection: 'column' }}>
+          <span>Rate Us:</span>
+
+          {[1, 2, 3, 4, 5].map((num) => (
+            <label key={num}>
+              <input
+                type="radio"
+                name="rating"
+                value={num}
+                checked={formData.rating === String(num)}
+                onChange={handleChange}
+              />{' '}
+              {num}
+            </label>
+          ))}
+        </div>
+
         <button type="submit">Submit Feedback</button>
       </form>
     </>
   );
 };
 
-export default FeedbackForm;  
+export default FeedbackForm;
